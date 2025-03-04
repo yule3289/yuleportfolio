@@ -1,0 +1,610 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+}
+body{
+    background: #F0F8FF;
+}
+/* 초기화 */
+*{margin: 0;padding: 0; box-sizing: border-box;}
+a{text-decoration: none;}
+li{list-style: none;}
+button{border: none; background: none;cursor: pointer;}
+img{width: 100%;height: 100%;display: block;border: none;}
+
+/* header */
+header{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: #A7D8FF;
+}
+header .inner{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .inner h1{
+    width: 100px;
+    height: 50px;
+}
+header .inner h1 a{
+    display: block;
+    text-indent: -99999px;
+    width: 100px;
+    height: 50px;
+    background: url("../images/logo.png")no-repeat;
+    background-size: 100px;
+}
+header .nav_wrap{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+header .nav_wrap .nav{
+    display: flex;
+    gap: 32px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+body.on header .nav_wrap .nav{
+    opacity: 1;
+}
+header .nav_wrap .nav li a{
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    font-weight: 500;
+    position:relative;
+    transition: all 0.3s ease-in-out;
+}
+
+header .nav_wrap .nav li a:hover {
+color: rgba(255, 255, 255, 1);
+}
+/* 네비 메뉴 아이콘 */
+header .nav_wrap div{
+    width: 36px;
+    height: 36px;
+    position: relative;
+    margin-top: 5px;
+}
+header .nav_wrap div span{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+header .nav_wrap div span:nth-child(1){
+    top: 0;
+}
+header .nav_wrap div span:nth-child(2){
+    top: 12px;
+}
+header .nav_wrap div span:nth-child(3){
+    top: 24px;
+}
+body.on header .nav_wrap div span:nth-child(1){
+   transform: rotate(45deg);
+   top: 12px;
+}
+body.on header .nav_wrap div span:nth-child(2){
+   transform: translateX(100%);
+   opacity: 0;
+}
+body.on header .nav_wrap div span:nth-child(3){
+    transform: rotate(-45deg);
+    top: 12px;
+}
+/* main */
+main{
+    width: 100%;
+    height: 100vh;
+    background: #A7D8FF;
+}
+main .inner{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+main .inner .main_title{
+    width: 1400px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+}
+/* 메인 동그라미 */
+main .inner .one{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background: #6ABDFF;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -550px;
+    top: 100px;
+    opacity: 0;
+    
+}
+main .inner .two{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background: #F0F8FF;
+    position: absolute;
+    right: 170px;
+    bottom: 210px;
+    opacity: 0;
+}
+main .inner .three{
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: #D4EBFF;
+    position: absolute;
+    right: 100px;
+    bottom: 270px;
+    opacity: 0;
+}
+/* section */
+/* about */
+/* contact title */
+#about,
+#design,
+#contact
+{
+    width: 100%;
+    height: 100vh;
+}
+#about .inner,
+#design .inner,
+#contact .inner
+{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    padding-top: 70px;
+}
+#about .inner .subtitle,
+#design .inner .subtitle,
+#contact .inner .subtitle{
+    width: 100%;
+    height: 131px;
+    background: url("../images/title.png")no-repeat;
+    position: relative;
+}
+#about .inner .subtitle h2,
+#design .inner .subtitle h2,
+#contact .inner .subtitle h2{
+    color: #6ABDFF;
+    font-size: 56px;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+}
+#about .inner .subtitle h2::after{
+    content: '';
+    width: 250px;
+    height: 1px;
+    background: #6ABDFF;
+    position: absolute;
+    left: 230px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#design .inner .subtitle h2::after,
+#contact .inner .subtitle h2::after{
+    content: '';
+    width: 250px;
+    height: 1px;
+    background: #6ABDFF;
+    position: absolute;
+    left: 300px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#about .inner .about_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 40px; */
+    padding: 50px;
+    gap: 140px;
+}
+/* 프로필사진 */
+#about .inner .about_wrap .profile{
+    background: #ddd;
+    width: 300px;
+    height: 400px;
+    margin-top: -80px;
+}
+/* 프로필 텍스트 */
+#about .inner .about_wrap .profile_txt{
+    width: 830px;
+    display: flex;
+    justify-content: space-between;
+}
+#about .inner .about_wrap .profile_txt .profile_list{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.profile_list h3{
+    color: #6ABDFF;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.profile_list div ul{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.profile_list div ul li{
+    display: flex;
+    gap: 24px;
+    color:#333;
+    font-size: 18px;
+}
+.skill{
+    margin-top: 60px;
+}
+.skill .icon{
+    display: flex;
+    gap: 24px;
+}
+.skill .icon li{
+    width: 36px;
+    height: 36px;
+}
+/* work */
+#text{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+#text .txt_effect_wrap{
+    width: 100%;
+    padding-top: 60px;
+}
+#text .txt_effect_wrap .txt_effect{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-style: normal;
+    font-weight: 700;
+}
+#text .txt_personal{
+    line-height: 0.8;
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 100px;
+    font-weight: 700;
+    position: absolute;
+    left: 100px;
+    top: 60px;
+    z-index: 6;
+    opacity: 0;
+    animation-delay: 2;
+}
+#text .txt_publishing{
+    color: #A7D8FF;
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    z-index: 5;
+    opacity: 0;
+    font-size:150px;
+    animation-delay: 1.5;
+}
+#text .txt_design{
+    color: #D4EBFF;
+    position: absolute;
+    right: 100px;
+    top: 370px;
+    z-index: 4;
+    opacity: 0;
+    font-size:100px;
+    animation-delay: 1;
+}
+#text .txt_yule{
+    color: #6ABDFF;
+    position: absolute;
+    left: 200px;
+    top: 380px;
+    z-index: 2;
+    opacity: 0;
+    font-size:130px;
+    animation-delay: 0.5;
+}
+#text .txt_portfolio{
+    color: #A7D8FF;
+    position: absolute;
+    left: 500px;
+    top:500px;
+    opacity: 0;
+    font-size:130px;
+}
+/* worklist */
+#work .publishing_list{
+    width: 1400px;
+    margin: auto;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+#work .publishing_list li.list{
+    width: 1300px;
+    height: 650px;
+    margin: auto;
+    border-radius: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.60);
+    background: radial-gradient(265.11% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    z-index: 10;
+    padding: 30px;
+    opacity: 0.3;
+    transform: scale(0.9);
+    filter: blur(3px);
+}
+#work .publishing_list li.list h2{
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    font-size: 56px;
+    font-weight: 700;
+    margin: 24px 16px;
+}
+/* 색변경 */
+#work .publishing_list li.desktop h2{
+    -webkit-text-stroke-color: #6A89CC;
+}
+#work .publishing_list li.desktop .btn{
+    background: #6A89CC;
+}
+#work .publishing_list li.responsive h2{
+    -webkit-text-stroke-color: #A3B899;
+}
+#work .publishing_list li.responsive .btn{
+    background:#A3B899;
+}
+#work .publishing_list li.mobile h2{
+    -webkit-text-stroke-color: #F5C26B;
+}
+#work .publishing_list li.mobile .btn{
+    background: #F5C26B;
+}
+
+#work .publishing_list li.list .contents{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+#work .publishing_list li.list .contents .mockup{
+    width: 50%;
+}
+/* list  설명부분 */
+#work .publishing_list li.list .contents .info{
+    width: 50%;
+}
+#work .publishing_list li.list .contents .info h4{
+    color: #555;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+#work .publishing_list li.list .contents .info .titwrap{
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+/* 로고 */
+#work .publishing_list li.list .contents .info .titwrap .imgbox{
+    width: 160px;
+}
+#work .publishing_list li.list .contents .info .titwrap .coffenlogo,
+#work .publishing_list li.list .contents .info .titwrap .hollyslogo
+{
+    width: 100px;
+}
+#work .publishing_list li.list .contents .info .titwrap h3{
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+}
+#work .publishing_list li.list .contents .info .tool_wrap{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 32px 0 16px;
+}
+#work .publishing_list li.list .contents .info .tool_wrap .tool{
+    display: flex;
+    gap: 16px;
+}
+#work .publishing_list li.list .contents .info .tool_wrap .tool li{
+    width: 36px;
+}
+#work .publishing_list h5{
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+}
+#work .publishing_list .txt>ul>li{
+    font-size: 18px;
+    text-indent: 8px;
+}
+#work .publishing_list .txt>ul{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+#work .publishing_list .btn_wrap{
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+}
+#work .publishing_list .btn{
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+#work .publishing_list .btn a{
+    color: #fff;
+    display: block;
+    padding: 16px 24px;
+    width: 100%;
+    height: 100%;
+}
+#work .publishing_list .btn:hover{
+    opacity:0.8; 
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+/* design */
+#design .card_wrap{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 30px;
+}
+.card {
+    width: 25%;
+    height: 450px;
+    position: relative;
+    perspective: 1000px; /* 3D 효과 */
+}
+.card_content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.card:hover .card_content {
+    transform: rotateY(180deg); /* 호버 시 뒤집힘 */
+}
+.card_front, .card_back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.card_front {
+    background: white;
+    overflow: hidden;
+}
+.card .haru img{
+    width: 100%;
+    height: auto;
+}
+.card_back{
+    padding: 16px;
+    background: #366790;
+    color: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.card_back h4{
+    font-size: 18px;
+    width: 100%;
+    padding: 16px 0;
+    position: relative;
+}
+.card_back h4::after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.card_back ul.tool{
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 8px;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.card_back .info{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+/* contact */
+#contact .inner{
+    padding-top: 100px;
+}
+#contact .inner .catch{
+    width: 100%;
+    display: flex;
+    height: 278px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+#contact .inner .catch img{
+    width: 400px;
+    height: 200px;
+}
+#contact .inner .catch .txt{
+    color: #555 ;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+#contact .inner .catch .txt span{
+    color: #6ABDFF;
+    font-weight: 500;
+}
+#contact .inner ul{
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    align-items: center;
+    margin-top: 60px;
+}
+#contact .inner ul li{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    color:#333;
+    font-size: 36px;
+    font-weight: 700;
+}
+#contact .inner ul li img{
+    width: 80px;
+    height: 80px;
+}
